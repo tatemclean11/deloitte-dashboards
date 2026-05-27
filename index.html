@@ -27,14 +27,12 @@
       min-height: 100vh;
     }
 
-    /* Top green bar */
     .top-bar {
       height: 5px;
       background: var(--dl-green);
       width: 100%;
     }
 
-    /* Header */
     header {
       background: var(--dl-white);
       border-bottom: 1px solid var(--dl-gray);
@@ -82,7 +80,6 @@
       font-weight: 300;
     }
 
-    /* Decorative circle in header */
     .header-circle {
       position: absolute;
       right: -40px;
@@ -104,7 +101,6 @@
       pointer-events: none;
     }
 
-    /* Main content */
     main {
       max-width: 1100px;
       margin: 0 auto;
@@ -145,7 +141,6 @@
       border-radius: 12px;
     }
 
-    /* Dashboard grid */
     .dashboard-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -234,7 +229,6 @@
       stroke: var(--dl-green);
     }
 
-    /* Empty state */
     .empty-state {
       text-align: center;
       padding: 60px 40px;
@@ -274,7 +268,6 @@
       line-height: 1.6;
     }
 
-    /* Instructions banner */
     .instructions {
       background: var(--dl-dark-gray);
       color: var(--dl-white);
@@ -358,41 +351,52 @@
 
     <div class="section-header">
       <h2>All Dashboards</h2>
-      <!-- Update the count number as you add dashboards -->
       <span class="count-badge" id="dash-count">0 dashboards</span>
     </div>
 
-    <!-- 
-      =============================================
+    <!--
       HOW TO ADD A DASHBOARD:
       Copy one <a class="dashboard-card"> block below,
-      paste it inside the div#dashboard-grid,
+      paste it inside div#dashboard-grid,
       and update: href, data-tag, title, description, date.
-      Then update the count badge above.
-      =============================================
+      The count badge updates automatically.
     -->
 
     <div class="dashboard-grid" id="dashboard-grid">
 
       <a class="dashboard-card" href="claude-code-intro.html">
-  <span class="card-tag">Overview</span>
-  <div class="card-title">Claude Code Intro</div>
-  <div class="card-description">An introduction to Claude Code and its capabilities.</div>
-  <div class="card-footer">
-    <span class="card-date">Updated May 2025</span>
-    <span class="card-link">
-      Open
-      <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M5 12h14M12 5l7 7-7 7"/>
-      </svg>
-    </span>
-  </div>
-</a>
-      -->
+        <span class="card-tag">Overview</span>
+        <div class="card-title">Claude Code Intro</div>
+        <div class="card-description">An introduction to Claude Code and its capabilities.</div>
+        <div class="card-footer">
+          <span class="card-date">Updated May 2025</span>
+          <span class="card-link">
+            Open
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </span>
+        </div>
+      </a>
+
+      <a class="dashboard-card" href="desk-side-ai-factory.html">
+        <span class="card-tag">AI Strategy</span>
+        <div class="card-title">The Desk-Side AI Factory</div>
+        <div class="card-description">Commercial use cases unlocked by on-device compute, a cloud-vs-local TCO calculator, the hardware frontier from Mac Mini to DGX, and a guide to where AI trends actually originate.</div>
+        <div class="card-footer">
+          <span class="card-date">Updated May 2026</span>
+          <span class="card-link">
+            Open
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </span>
+        </div>
+      </a>
 
     </div>
 
-    <!-- Empty state — shown when no cards are present -->
+    <!-- Empty state — hidden automatically when cards are present -->
     <div class="empty-state" id="empty-state">
       <div class="empty-circle">
         <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -403,7 +407,6 @@
       <p>Add your first dashboard by following the instructions below, then pushing to GitHub.</p>
     </div>
 
-    <!-- How-to banner -->
     <div class="instructions">
       <div class="instructions-icon">
         <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -415,9 +418,8 @@
         <h3>How to add a dashboard</h3>
         <p>
           1. Drop your new <code>.html</code> file into the <code>deloitte-dashboards</code> folder.<br/>
-          2. Open this <code>index.html</code> file in a text editor, find the <em>EXAMPLE CARD</em> comment, copy the card block, and fill in your filename, title, and description.<br/>
-          3. Update the dashboard count badge near the top.<br/>
-          4. Commit and push both files via GitHub Desktop — your new dashboard will appear here within a minute.
+          2. Open this <code>index.html</code>, find the dashboard grid, copy an existing card block, and update the <code>href</code>, title, description, and date.<br/>
+          3. Commit and push both files via GitHub Desktop — your new dashboard will appear here within a minute.
         </p>
       </div>
     </div>
@@ -429,7 +431,7 @@
   </footer>
 
   <script>
-    // Auto-show/hide empty state based on card count
+    // Auto-show/hide empty state and update count badge
     const grid = document.getElementById('dashboard-grid');
     const empty = document.getElementById('empty-state');
     const countBadge = document.getElementById('dash-count');
