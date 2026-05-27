@@ -8,48 +8,46 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;700&family=Geist:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600;1,700&family=STIX+Two+Text:ital,wght@1,600&display=swap" rel="stylesheet">
 
 <style>
 /* =====================================================================
-   DESIGN TOKENS
+   DESIGN TOKENS — brand-aligned dark theme
    ===================================================================== */
 :root {
-  /* Surfaces */
-  --bg-0: #0d0c0a;          /* deepest, behind everything */
-  --bg-1: #131210;          /* page */
-  --bg-2: #1a1815;          /* card */
-  --bg-3: #232017;          /* card raised */
-  --bg-4: #2b271d;          /* hover / strong */
+  /* Page surfaces */
+  --bg-0: #1A1A1A;
+  --bg-1: #1F1F1F;
+  --bg-2: #282728;
+  --bg-3: #333333;
+  --bg-4: #3D3D3D;
 
   /* Ink */
-  --ink-0: #f4ede0;         /* warm off-white */
-  --ink-1: #d8cfbd;
-  --ink-2: #a89e88;
-  --ink-3: #6e6757;
-  --ink-4: #3d382f;
+  --ink-0: #FFFFFF;
+  --ink-1: #E6E6E6;
+  --ink-2: #B8B8B8;
+  --ink-3: #8A8A8A;
+  --ink-4: #555555;
 
-  /* Signal accent — electric amber */
-  --signal: #ff9d3d;
-  --signal-soft: rgba(255, 157, 61, 0.14);
-  --signal-line: rgba(255, 157, 61, 0.32);
+  /* Brand accents */
+  --green: #86BC25;
+  --green-neon: #86EB22;
+  --green-soft: rgba(134, 235, 34, 0.13);
+  --green-line: rgba(134, 235, 34, 0.32);
 
-  /* Data accent — muted teal */
-  --data: #6cb6a8;
-  --data-soft: rgba(108, 182, 168, 0.13);
+  --blue: #00A3E0;
+  --blue-soft: rgba(0, 163, 224, 0.13);
 
-  /* Warning — late press */
-  --late: #d65148;
-  --late-soft: rgba(214, 81, 72, 0.14);
+  --red: #DA291C;
+  --red-soft: rgba(218, 41, 28, 0.14);
 
   /* Rule lines */
-  --rule: rgba(245, 235, 215, 0.08);
-  --rule-strong: rgba(245, 235, 215, 0.18);
+  --rule: rgba(230, 230, 230, 0.08);
+  --rule-strong: rgba(230, 230, 230, 0.18);
 
   /* Fonts */
-  --display: 'Instrument Serif', 'Times New Roman', serif;
-  --body: 'Geist', system-ui, -apple-system, sans-serif;
-  --mono: 'JetBrains Mono', 'SF Mono', Menlo, monospace;
+  --display: 'STIX Two Text', Georgia, serif;
+  --body: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
 /* =====================================================================
@@ -64,44 +62,51 @@ body {
   font-weight: 400;
   font-size: 15px;
   line-height: 1.55;
-  letter-spacing: -0.005em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image:
-    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(255, 157, 61, 0.05), transparent 60%),
-    radial-gradient(ellipse 60% 40% at 10% 100%, rgba(108, 182, 168, 0.04), transparent 60%);
-  background-attachment: fixed;
 }
 
-a { color: var(--signal); text-decoration: none; transition: color 0.2s; }
+a { color: var(--green-neon); text-decoration: none; transition: color 0.2s; }
 a:hover { color: var(--ink-0); }
 
-/* Selection */
-::selection { background: var(--signal); color: var(--bg-0); }
+::selection { background: var(--green-neon); color: var(--bg-0); }
 
 /* =====================================================================
    TYPOGRAPHY UTILITIES
    ===================================================================== */
-.serif { font-family: var(--display); font-weight: 400; letter-spacing: -0.01em; }
-.serif-italic { font-family: var(--display); font-style: italic; font-weight: 400; letter-spacing: -0.01em; }
-.mono { font-family: var(--mono); }
-
-.label {
-  font-family: var(--mono);
-  font-size: 10.5px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--ink-3);
-  font-weight: 500;
+.accent-italic {
+  font-family: var(--display);
+  font-style: italic;
+  font-weight: 600;
+  color: var(--green-neon);
+  letter-spacing: -0.005em;
 }
 
-.label-signal {
-  font-family: var(--mono);
-  font-size: 10.5px;
-  letter-spacing: 0.18em;
+.label {
+  font-family: var(--body);
+  font-size: 11px;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--signal);
-  font-weight: 500;
+  color: var(--ink-3);
+  font-weight: 700;
+}
+
+.label-accent {
+  font-family: var(--body);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--green-neon);
+  font-weight: 700;
+}
+
+/* =====================================================================
+   SIGNATURE GREEN BAR
+   ===================================================================== */
+.signature-bar {
+  height: 5px;
+  background: var(--green);
+  width: 100%;
 }
 
 /* =====================================================================
@@ -118,7 +123,7 @@ a:hover { color: var(--ink-0); }
 }
 
 /* =====================================================================
-   HEADER
+   TOPBAR
    ===================================================================== */
 .topbar {
   display: flex;
@@ -129,37 +134,37 @@ a:hover { color: var(--ink-0); }
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(19, 18, 16, 0.88);
+  background: rgba(31, 31, 31, 0.92);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 }
 
 .brand {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   gap: 14px;
 }
-.brand-mark {
-  font-family: var(--display);
-  font-style: italic;
-  font-size: 22px;
-  color: var(--ink-0);
-  letter-spacing: -0.01em;
+.brand-dot {
+  width: 24px;
+  height: 24px;
+  background: var(--green);
+  border-radius: 50%;
+  flex-shrink: 0;
 }
-.brand-mark::before {
-  content: "◆ ";
-  color: var(--signal);
-  font-style: normal;
-  font-size: 14px;
-  vertical-align: 2px;
-  margin-right: 2px;
+.brand-mark {
+  font-family: var(--body);
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--ink-0);
+  letter-spacing: -0.005em;
 }
 .brand-meta {
-  font-family: var(--mono);
-  font-size: 10.5px;
-  letter-spacing: 0.16em;
+  font-family: var(--body);
+  font-size: 11px;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--ink-3);
+  font-weight: 600;
 }
 
 .topnav {
@@ -167,22 +172,23 @@ a:hover { color: var(--ink-0); }
   gap: 28px;
 }
 .topnav a {
-  font-family: var(--mono);
+  font-family: var(--body);
   font-size: 11px;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--ink-2);
   position: relative;
   padding-bottom: 4px;
+  font-weight: 700;
 }
 .topnav a:hover { color: var(--ink-0); }
-.topnav a.active { color: var(--signal); }
+.topnav a.active { color: var(--green-neon); }
 .topnav a.active::after {
   content: '';
   position: absolute;
   left: 0; right: 0; bottom: -23px;
   height: 2px;
-  background: var(--signal);
+  background: var(--green-neon);
 }
 
 @media (max-width: 800px) {
@@ -199,51 +205,84 @@ a:hover { color: var(--ink-0); }
   overflow: hidden;
 }
 
+/* Circular motif background — subtle */
+.hero::before,
+.hero::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(134, 188, 37, 0.10);
+  pointer-events: none;
+}
+.hero::before {
+  width: 420px;
+  height: 420px;
+  right: -120px;
+  top: -120px;
+}
+.hero::after {
+  width: 260px;
+  height: 260px;
+  right: 80px;
+  top: 60px;
+  border-color: rgba(0, 163, 224, 0.08);
+}
+
 .hero-meta {
   display: flex;
   gap: 18px;
   align-items: center;
   margin-bottom: 32px;
   flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
 }
 .hero-meta .dot {
-  width: 6px; height: 6px;
-  background: var(--signal);
+  width: 8px; height: 8px;
+  background: var(--green-neon);
   border-radius: 50%;
   animation: pulse 2.4s ease-in-out infinite;
 }
 @keyframes pulse {
   0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.4; transform: scale(0.8); }
+  50% { opacity: 0.4; transform: scale(0.85); }
 }
 
 .hero-title {
-  font-family: var(--display);
-  font-size: clamp(48px, 9vw, 124px);
-  line-height: 0.92;
-  letter-spacing: -0.025em;
+  font-family: var(--body);
+  font-weight: 300;
+  font-size: clamp(44px, 8vw, 96px);
+  line-height: 1.02;
+  letter-spacing: -0.022em;
   color: var(--ink-0);
   margin: 0;
-  font-weight: 400;
+  position: relative;
+  z-index: 1;
 }
 .hero-title em {
+  font-family: var(--display);
   font-style: italic;
-  color: var(--signal);
+  font-weight: 600;
+  color: var(--green-neon);
+  letter-spacing: -0.01em;
 }
 
 .hero-sub {
   margin-top: 36px;
   max-width: 720px;
-  font-size: 18px;
-  line-height: 1.55;
+  font-size: 17px;
+  line-height: 1.6;
   color: var(--ink-1);
-  letter-spacing: -0.005em;
+  font-weight: 300;
+  position: relative;
+  z-index: 1;
 }
 .hero-sub em {
   font-family: var(--display);
   font-style: italic;
-  color: var(--ink-0);
-  font-size: 1.05em;
+  font-weight: 600;
+  color: var(--green-neon);
+  font-size: 1.04em;
 }
 
 .hero-stats {
@@ -253,30 +292,47 @@ a:hover { color: var(--ink-0); }
   gap: 32px;
   border-top: 1px solid var(--rule);
   padding-top: 36px;
+  position: relative;
+  z-index: 1;
+}
+.hero-stat {
+  position: relative;
+  padding-left: 16px;
+}
+.hero-stat::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 4px;
+  bottom: 8px;
+  width: 2px;
+  background: var(--green);
 }
 .hero-stat .num {
-  font-family: var(--display);
-  font-style: italic;
-  font-size: 52px;
+  font-family: var(--body);
+  font-weight: 300;
+  font-size: 48px;
   color: var(--ink-0);
   line-height: 1;
   letter-spacing: -0.02em;
 }
-.hero-stat .num .small { font-size: 26px; color: var(--ink-2); vertical-align: 6px; }
+.hero-stat .num .small { font-size: 24px; color: var(--ink-2); vertical-align: 4px; font-weight: 400; }
 .hero-stat .lbl {
-  margin-top: 12px;
-  font-family: var(--mono);
-  font-size: 10.5px;
-  letter-spacing: 0.14em;
+  margin-top: 14px;
+  font-family: var(--body);
+  font-size: 11px;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--ink-3);
-  max-width: 200px;
+  max-width: 220px;
+  font-weight: 600;
+  line-height: 1.4;
 }
 
 @media (max-width: 800px) {
   .hero { padding: 56px 0 40px; }
   .hero-stats { grid-template-columns: repeat(2, 1fr); gap: 24px; }
-  .hero-stat .num { font-size: 38px; }
+  .hero-stat .num { font-size: 36px; }
   .hero-sub { font-size: 16px; }
 }
 
@@ -297,44 +353,46 @@ a:hover { color: var(--ink-0); }
   align-items: start;
 }
 .surface-head .num {
-  font-family: var(--display);
-  font-style: italic;
+  font-family: var(--body);
+  font-weight: 300;
   font-size: 64px;
-  color: var(--signal);
+  color: var(--green-neon);
   line-height: 1;
   letter-spacing: -0.02em;
 }
 .surface-head .num::before {
-  content: 'SURFACE / ';
+  content: 'SECTION';
   display: block;
-  font-family: var(--mono);
-  font-style: normal;
-  font-size: 10.5px;
+  font-family: var(--body);
+  font-weight: 700;
+  font-size: 11px;
   letter-spacing: 0.18em;
   color: var(--ink-3);
   margin-bottom: 14px;
-  font-weight: 500;
 }
 
 .surface-head .body h2 {
-  font-family: var(--display);
-  font-size: clamp(32px, 5vw, 56px);
-  font-weight: 400;
+  font-family: var(--body);
+  font-weight: 300;
+  font-size: clamp(30px, 4.5vw, 48px);
   color: var(--ink-0);
   margin: 0 0 18px;
   letter-spacing: -0.02em;
-  line-height: 1.02;
+  line-height: 1.05;
 }
 .surface-head .body h2 em {
+  font-family: var(--display);
   font-style: italic;
-  color: var(--signal);
+  font-weight: 600;
+  color: var(--green-neon);
 }
 .surface-head .body p {
   font-size: 16px;
   color: var(--ink-1);
   max-width: 640px;
   margin: 0;
-  line-height: 1.55;
+  line-height: 1.6;
+  font-weight: 300;
 }
 
 @media (max-width: 800px) {
@@ -355,6 +413,7 @@ a:hover { color: var(--ink-0); }
   background: var(--bg-2);
   margin-bottom: 32px;
   align-items: center;
+  border-radius: 4px;
 }
 .filter-group {
   display: flex;
@@ -364,34 +423,36 @@ a:hover { color: var(--ink-0); }
 .filter-group .label { white-space: nowrap; }
 .chip-row { display: flex; flex-wrap: wrap; gap: 6px; }
 .chip {
-  font-family: var(--mono);
+  font-family: var(--body);
   font-size: 11px;
   letter-spacing: 0.06em;
   color: var(--ink-2);
   background: transparent;
   border: 1px solid var(--rule-strong);
-  padding: 5px 12px;
+  padding: 6px 12px;
   cursor: pointer;
   transition: all 0.15s;
   text-transform: uppercase;
-  font-weight: 500;
+  font-weight: 700;
+  border-radius: 3px;
 }
 .chip:hover { color: var(--ink-0); border-color: var(--ink-3); }
 .chip.active {
-  background: var(--signal);
+  background: var(--green);
   color: var(--bg-0);
-  border-color: var(--signal);
+  border-color: var(--green);
 }
 
 .cases-count {
-  font-family: var(--mono);
-  font-size: 11px;
+  font-family: var(--body);
+  font-size: 12px;
   color: var(--ink-3);
   letter-spacing: 0.06em;
   margin-bottom: 20px;
   text-transform: uppercase;
+  font-weight: 600;
 }
-.cases-count strong { color: var(--signal); font-weight: 700; }
+.cases-count strong { color: var(--green-neon); font-weight: 700; }
 
 .case-grid {
   display: grid;
@@ -411,12 +472,24 @@ a:hover { color: var(--ink-0); }
   display: flex;
   flex-direction: column;
   min-height: 320px;
+  border-radius: 4px;
+}
+.case::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 3px;
+  height: 100%;
+  background: var(--green);
+  opacity: 0;
+  transition: opacity 0.2s;
 }
 .case:hover {
   background: var(--bg-3);
-  border-color: var(--signal-line);
+  border-color: var(--green-line);
   transform: translateY(-2px);
 }
+.case:hover::before { opacity: 1; }
 .case .case-top {
   display: flex;
   justify-content: space-between;
@@ -425,44 +498,47 @@ a:hover { color: var(--ink-0); }
   margin-bottom: 18px;
 }
 .case .industry {
-  font-family: var(--mono);
-  font-size: 10px;
+  font-family: var(--body);
+  font-size: 10.5px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--ink-3);
-  font-weight: 500;
+  font-weight: 700;
 }
 .case .value-tag {
-  font-family: var(--mono);
-  font-size: 9.5px;
+  font-family: var(--body);
+  font-size: 10px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  padding: 3px 8px;
+  padding: 4px 9px;
   border: 1px solid var(--rule-strong);
   color: var(--ink-2);
   white-space: nowrap;
-  font-weight: 500;
+  font-weight: 700;
+  border-radius: 2px;
 }
 .case h3 {
-  font-family: var(--display);
-  font-size: 26px;
-  font-weight: 400;
+  font-family: var(--body);
+  font-weight: 700;
+  font-size: 22px;
   color: var(--ink-0);
   margin: 0 0 14px;
-  line-height: 1.08;
+  line-height: 1.15;
   letter-spacing: -0.01em;
 }
 .case .unlock {
   font-size: 14px;
   color: var(--ink-1);
-  line-height: 1.5;
+  line-height: 1.55;
   margin-bottom: 18px;
   flex: 1;
+  font-weight: 300;
 }
 .case .unlock em {
   font-family: var(--display);
   font-style: italic;
-  color: var(--signal);
+  font-weight: 600;
+  color: var(--green-neon);
   font-size: 1.04em;
 }
 .case .meta-row {
@@ -480,18 +556,19 @@ a:hover { color: var(--ink-0); }
   gap: 10px;
 }
 .case .meta-row .k {
-  font-family: var(--mono);
-  font-size: 10px;
+  font-family: var(--body);
+  font-size: 10.5px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--ink-3);
-  font-weight: 500;
+  font-weight: 700;
 }
 .case .meta-row .v {
-  font-family: var(--mono);
-  font-size: 11px;
+  font-family: var(--body);
+  font-size: 12px;
   color: var(--ink-1);
   text-align: right;
+  font-weight: 400;
 }
 .case .why-tags {
   display: flex;
@@ -500,15 +577,15 @@ a:hover { color: var(--ink-0); }
   margin-top: 12px;
 }
 .case .why-tag {
-  font-family: var(--mono);
-  font-size: 9px;
+  font-family: var(--body);
+  font-size: 9.5px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--data);
-  background: var(--data-soft);
-  padding: 2px 7px;
-  border-radius: 1px;
-  font-weight: 500;
+  color: var(--blue);
+  background: var(--blue-soft);
+  padding: 3px 8px;
+  border-radius: 2px;
+  font-weight: 700;
 }
 
 /* =====================================================================
@@ -521,6 +598,7 @@ a:hover { color: var(--ink-0); }
   background: var(--bg-2);
   border: 1px solid var(--rule-strong);
   padding: 36px;
+  border-radius: 4px;
 }
 @media (max-width: 900px) { .tco { grid-template-columns: 1fr; } }
 
@@ -532,18 +610,19 @@ a:hover { color: var(--ink-0); }
   margin-bottom: 10px;
 }
 .tco-controls .control-label {
-  font-family: var(--mono);
-  font-size: 10.5px;
+  font-family: var(--body);
+  font-size: 11px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--ink-2);
-  font-weight: 500;
+  font-weight: 700;
 }
 .tco-controls .control-val {
   font-family: var(--display);
   font-style: italic;
+  font-weight: 600;
   font-size: 22px;
-  color: var(--signal);
+  color: var(--green-neon);
   letter-spacing: -0.01em;
 }
 
@@ -558,19 +637,19 @@ a:hover { color: var(--ink-0); }
   -webkit-appearance: none;
   width: 14px;
   height: 14px;
-  background: var(--signal);
+  background: var(--green);
   cursor: pointer;
   border-radius: 50%;
-  box-shadow: 0 0 0 4px var(--signal-soft);
+  box-shadow: 0 0 0 4px var(--green-soft);
 }
 .tco-controls input[type="range"]::-moz-range-thumb {
   width: 14px;
   height: 14px;
-  background: var(--signal);
+  background: var(--green);
   cursor: pointer;
   border-radius: 50%;
   border: none;
-  box-shadow: 0 0 0 4px var(--signal-soft);
+  box-shadow: 0 0 0 4px var(--green-soft);
 }
 
 .tco-radio-row {
@@ -583,22 +662,23 @@ a:hover { color: var(--ink-0); }
   flex: 1;
   min-width: 64px;
   text-align: center;
-  font-family: var(--mono);
-  font-size: 10.5px;
+  font-family: var(--body);
+  font-size: 11px;
   letter-spacing: 0.08em;
-  padding: 8px 10px;
+  padding: 9px 10px;
   border: 1px solid var(--rule-strong);
   color: var(--ink-2);
   cursor: pointer;
   text-transform: uppercase;
-  font-weight: 500;
+  font-weight: 700;
   transition: all 0.15s;
+  border-radius: 3px;
 }
 .tco-radio:hover { color: var(--ink-0); border-color: var(--ink-3); }
 .tco-radio.active {
-  background: var(--signal);
+  background: var(--green);
   color: var(--bg-0);
-  border-color: var(--signal);
+  border-color: var(--green);
 }
 
 .tco-chart {
@@ -608,15 +688,17 @@ a:hover { color: var(--ink-0); }
 }
 .tco-chart svg { width: 100%; height: 100%; }
 .tco-chart .axis-label {
-  font-family: var(--mono);
-  font-size: 10px;
+  font-family: var(--body);
+  font-size: 10.5px;
   fill: var(--ink-3);
   letter-spacing: 0.08em;
+  font-weight: 600;
 }
 .tco-chart .tick-label {
-  font-family: var(--mono);
-  font-size: 10px;
+  font-family: var(--body);
+  font-size: 10.5px;
   fill: var(--ink-3);
+  font-weight: 400;
 }
 
 .tco-results {
@@ -628,29 +710,44 @@ a:hover { color: var(--ink-0); }
   padding-top: 24px;
 }
 @media (max-width: 700px) { .tco-results { grid-template-columns: 1fr; } }
+.tco-result {
+  position: relative;
+  padding-left: 14px;
+}
+.tco-result::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 8px;
+  width: 2px;
+  background: var(--ink-4);
+}
+.tco-result.signal::before { background: var(--green); }
 .tco-result .lbl {
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 0.14em;
+  font-family: var(--body);
+  font-size: 11px;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--ink-3);
   margin-bottom: 8px;
-  font-weight: 500;
+  font-weight: 700;
 }
 .tco-result .val {
-  font-family: var(--display);
-  font-style: italic;
+  font-family: var(--body);
+  font-weight: 300;
   font-size: 36px;
   color: var(--ink-0);
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
   line-height: 1;
 }
-.tco-result.signal .val { color: var(--signal); }
+.tco-result.signal .val { color: var(--green-neon); }
 .tco-result .sub {
-  font-family: var(--mono);
-  font-size: 11px;
+  font-family: var(--body);
+  font-size: 12px;
   color: var(--ink-2);
-  margin-top: 4px;
+  margin-top: 6px;
+  font-weight: 400;
 }
 
 /* =====================================================================
@@ -660,6 +757,7 @@ a:hover { color: var(--ink-0); }
   background: var(--bg-2);
   border: 1px solid var(--rule-strong);
   overflow-x: auto;
+  border-radius: 4px;
 }
 .hw-row {
   display: grid;
@@ -673,74 +771,81 @@ a:hover { color: var(--ink-0); }
 .hw-row:last-child { border-bottom: none; }
 .hw-row.header {
   background: var(--bg-3);
-  border-bottom: 1px solid var(--rule-strong);
+  border-bottom: 2px solid var(--green);
 }
 .hw-row.header > div {
-  font-family: var(--mono);
-  font-size: 10px;
+  font-family: var(--body);
+  font-size: 11px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--ink-3);
-  font-weight: 500;
+  color: var(--ink-1);
+  font-weight: 700;
 }
 .hw-row .tier {
   font-family: var(--display);
   font-style: italic;
+  font-weight: 600;
   font-size: 22px;
-  color: var(--signal);
+  color: var(--green-neon);
   letter-spacing: -0.01em;
 }
 .hw-row .hw-name {
-  font-family: var(--display);
-  font-size: 18px;
+  font-family: var(--body);
+  font-weight: 700;
+  font-size: 16px;
   color: var(--ink-0);
   letter-spacing: -0.005em;
 }
 .hw-row .hw-form {
-  font-family: var(--mono);
-  font-size: 11px;
+  font-family: var(--body);
+  font-size: 10.5px;
   color: var(--ink-3);
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   margin-top: 4px;
   text-transform: uppercase;
+  font-weight: 600;
 }
 .hw-row .hw-num {
-  font-family: var(--mono);
+  font-family: var(--body);
   font-size: 14px;
   color: var(--ink-0);
-  font-weight: 500;
+  font-weight: 600;
 }
 .hw-row .hw-num .sub {
   display: block;
   font-size: 10px;
   color: var(--ink-3);
-  margin-top: 3px;
-  font-weight: 400;
-  letter-spacing: 0.06em;
+  margin-top: 4px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
 }
 .hw-row .hw-fits {
   font-family: var(--body);
   font-size: 13px;
   color: var(--ink-1);
-  line-height: 1.4;
+  line-height: 1.45;
+  font-weight: 400;
 }
 .hw-row .hw-bar {
   height: 4px;
   background: var(--rule-strong);
   position: relative;
   width: 100%;
+  border-radius: 2px;
+  overflow: hidden;
 }
 .hw-row .hw-bar .fill {
   position: absolute;
   left: 0; top: 0; bottom: 0;
-  background: linear-gradient(to right, var(--signal), var(--data));
+  background: linear-gradient(to right, var(--green), var(--blue));
 }
 .hw-row .hw-bar .pct {
   position: absolute;
   right: 0; top: -16px;
-  font-family: var(--mono);
-  font-size: 10px;
+  font-family: var(--body);
+  font-size: 10.5px;
   color: var(--ink-3);
+  font-weight: 600;
 }
 
 /* =====================================================================
@@ -755,6 +860,7 @@ a:hover { color: var(--ink-0); }
   border: 1px solid var(--rule-strong);
   padding: 32px;
   overflow-x: auto;
+  border-radius: 4px;
 }
 .lag-vis-head {
   display: flex;
@@ -765,12 +871,18 @@ a:hover { color: var(--ink-0); }
   gap: 12px;
 }
 .lag-vis-title {
-  font-family: var(--display);
-  font-size: 24px;
+  font-family: var(--body);
+  font-weight: 700;
+  font-size: 22px;
   color: var(--ink-0);
   letter-spacing: -0.01em;
 }
-.lag-vis-title em { color: var(--signal); font-style: italic; }
+.lag-vis-title em {
+  font-family: var(--display);
+  font-style: italic;
+  font-weight: 600;
+  color: var(--green-neon);
+}
 
 .lag-grid {
   display: grid;
@@ -779,37 +891,38 @@ a:hover { color: var(--ink-0); }
   min-width: 900px;
 }
 .lag-col-header {
-  font-family: var(--mono);
-  font-size: 10px;
+  font-family: var(--body);
+  font-size: 10.5px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--ink-3);
   padding: 0 8px 14px;
   border-bottom: 1px solid var(--rule-strong);
-  font-weight: 500;
+  font-weight: 700;
   text-align: center;
   position: relative;
 }
 .lag-col-header.first { text-align: left; }
-.lag-col-header.late { color: var(--late); }
+.lag-col-header.late { color: var(--red); }
 
 .lag-case-cell {
   padding: 16px 8px;
   border-bottom: 1px solid var(--rule);
-  font-family: var(--display);
-  font-size: 18px;
+  font-family: var(--body);
+  font-weight: 700;
+  font-size: 15px;
   color: var(--ink-0);
   letter-spacing: -0.005em;
-  line-height: 1.15;
+  line-height: 1.2;
 }
 .lag-case-cell .sub {
-  font-family: var(--mono);
-  font-size: 10px;
+  font-family: var(--body);
+  font-size: 10.5px;
   color: var(--ink-3);
   letter-spacing: 0.08em;
   text-transform: uppercase;
   margin-top: 4px;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .lag-dot-cell {
@@ -826,20 +939,10 @@ a:hover { color: var(--ink-0); }
   border-radius: 50%;
   background: var(--ink-4);
 }
-.lag-dot.early { background: var(--signal); box-shadow: 0 0 12px var(--signal-line); }
-.lag-dot.mid { background: var(--data); }
-.lag-dot.late { background: var(--late); }
+.lag-dot.early { background: var(--green-neon); box-shadow: 0 0 12px var(--green-line); }
+.lag-dot.mid { background: var(--blue); }
+.lag-dot.late { background: var(--red); }
 .lag-dot-cell.first { padding-left: 0; justify-content: flex-start; }
-.lag-tip {
-  font-family: var(--mono);
-  font-size: 9px;
-  color: var(--ink-2);
-  letter-spacing: 0.06em;
-  margin-top: 4px;
-  position: absolute;
-  bottom: 4px;
-  white-space: nowrap;
-}
 
 .lag-legend {
   display: flex;
@@ -851,12 +954,12 @@ a:hover { color: var(--ink-0); }
   display: flex;
   align-items: center;
   gap: 8px;
-  font-family: var(--mono);
-  font-size: 10px;
+  font-family: var(--body);
+  font-size: 10.5px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--ink-2);
-  font-weight: 500;
+  font-weight: 700;
 }
 .lag-legend-item .swatch {
   width: 8px; height: 8px; border-radius: 50%;
@@ -875,36 +978,39 @@ a:hover { color: var(--ink-0); }
   background: var(--bg-2);
   border: 1px solid var(--rule);
   padding: 28px;
+  border-radius: 4px;
+  border-top: 3px solid var(--green);
 }
 .source-block .source-cat {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 14px;
   margin-bottom: 18px;
 }
 .source-block .source-num {
-  font-family: var(--display);
-  font-style: italic;
-  font-size: 32px;
-  color: var(--signal);
+  font-family: var(--body);
+  font-weight: 300;
+  font-size: 36px;
+  color: var(--green-neon);
   line-height: 1;
+  letter-spacing: -0.02em;
 }
 .source-block h4 {
-  font-family: var(--display);
-  font-size: 22px;
+  font-family: var(--body);
+  font-weight: 700;
+  font-size: 18px;
   color: var(--ink-0);
   margin: 0;
   letter-spacing: -0.005em;
-  font-weight: 400;
 }
 .source-block .source-sub {
-  font-family: var(--mono);
-  font-size: 10px;
+  font-family: var(--body);
+  font-size: 10.5px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--ink-3);
-  margin-top: 2px;
-  font-weight: 500;
+  margin-top: 4px;
+  font-weight: 600;
 }
 .source-list {
   list-style: none;
@@ -912,24 +1018,26 @@ a:hover { color: var(--ink-0); }
   margin: 0;
 }
 .source-list li {
-  padding: 10px 0;
-  border-bottom: 1px dashed var(--rule);
+  padding: 11px 0;
+  border-bottom: 1px solid var(--rule);
   display: flex;
   align-items: baseline;
-  gap: 12px;
+  gap: 14px;
 }
 .source-list li:last-child { border-bottom: none; }
 .source-list .handle {
-  font-family: var(--mono);
-  font-size: 12px;
-  color: var(--ink-0);
-  font-weight: 500;
+  font-family: var(--body);
+  font-size: 13px;
+  color: var(--green-neon);
+  font-weight: 700;
   white-space: nowrap;
+  min-width: 100px;
 }
 .source-list .desc {
   font-size: 13px;
   color: var(--ink-2);
-  line-height: 1.4;
+  line-height: 1.5;
+  font-weight: 300;
 }
 
 /* Stay current prescription */
@@ -947,30 +1055,33 @@ a:hover { color: var(--ink-0); }
   border: 1px solid var(--rule);
   padding: 24px 20px;
   position: relative;
+  border-radius: 4px;
+  border-top: 3px solid var(--green);
 }
 .rx-num {
-  font-family: var(--display);
-  font-style: italic;
+  font-family: var(--body);
+  font-weight: 300;
   font-size: 44px;
-  color: var(--signal);
+  color: var(--green-neon);
   line-height: 1;
   letter-spacing: -0.02em;
   margin-bottom: 12px;
 }
 .rx h5 {
-  font-family: var(--display);
-  font-size: 18px;
+  font-family: var(--body);
+  font-weight: 700;
+  font-size: 16px;
   color: var(--ink-0);
   margin: 0 0 10px;
-  font-weight: 400;
   letter-spacing: -0.005em;
-  line-height: 1.15;
+  line-height: 1.2;
 }
 .rx p {
   font-size: 13px;
   color: var(--ink-2);
   margin: 0;
-  line-height: 1.45;
+  line-height: 1.5;
+  font-weight: 300;
 }
 
 /* =====================================================================
@@ -985,21 +1096,27 @@ a:hover { color: var(--ink-0); }
   flex-wrap: wrap;
 }
 .foot .left {
+  font-family: var(--body);
+  font-weight: 300;
+  font-size: 17px;
+  color: var(--ink-2);
+  max-width: 520px;
+  line-height: 1.5;
+}
+.foot .left em {
   font-family: var(--display);
   font-style: italic;
-  font-size: 18px;
-  color: var(--ink-2);
-  max-width: 480px;
-  line-height: 1.4;
+  font-weight: 600;
+  color: var(--green-neon);
 }
 .foot .right {
-  font-family: var(--mono);
-  font-size: 10px;
+  font-family: var(--body);
+  font-size: 10.5px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--ink-3);
   text-align: right;
-  font-weight: 500;
+  font-weight: 600;
 }
 .foot .right span { display: block; margin-bottom: 4px; }
 
@@ -1019,12 +1136,15 @@ a:hover { color: var(--ink-0); }
 </head>
 <body>
 
+<div class="signature-bar"></div>
+
 <!-- ===================== TOPBAR ===================== -->
 <header class="topbar">
   <div class="shell" style="width: 100%; padding-top: 0; padding-bottom: 0; display: flex; justify-content: space-between; align-items: center;">
     <div class="brand">
-      <span class="brand-mark">Desk-Side</span>
-      <span class="brand-meta">FIELD DISPATCH · NO. 01</span>
+      <div class="brand-dot"></div>
+      <span class="brand-mark">On-Device AI</span>
+      <span class="brand-meta">EXECUTIVE BRIEFING · MAY 2026</span>
     </div>
     <nav class="topnav">
       <a href="#use-cases" data-nav="use-cases">01 / Use Cases</a>
@@ -1040,9 +1160,9 @@ a:hover { color: var(--ink-0); }
   <div class="hero">
     <div class="hero-meta fade-up">
       <span class="dot"></span>
-      <span class="label">A dispatch from the on-device frontier</span>
+      <span class="label">A strategic briefing on commercial AI</span>
       <span style="color: var(--ink-4)">/</span>
-      <span class="label">May 2026</span>
+      <span class="label">Q2 2026</span>
     </div>
 
     <h1 class="hero-title fade-up delay-1">
@@ -1113,7 +1233,7 @@ a:hover { color: var(--ink-0); }
     <div class="cases-count">
       Showing <strong id="case-count">16</strong> use cases
       <span style="margin-left: 12px; color: var(--ink-4)">·</span>
-      <a href="#" id="clear-filters" style="margin-left: 12px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">Clear filters</a>
+      <a href="#" id="clear-filters" style="margin-left: 12px; font-weight: 600; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">Clear filters</a>
     </div>
 
     <div class="case-grid" id="case-grid"></div>
@@ -1173,7 +1293,7 @@ a:hover { color: var(--ink-0); }
           <input type="range" id="years" min="1" max="5" value="3" />
         </div>
 
-        <div style="margin-top: 32px; padding-top: 20px; border-top: 1px solid var(--rule); font-family: var(--mono); font-size: 11px; color: var(--ink-3); line-height: 1.6;">
+        <div style="margin-top: 32px; padding-top: 20px; border-top: 1px solid var(--rule); font-weight: 600; font-size: 11px; color: var(--ink-3); line-height: 1.6;">
           Cloud assumes typical API pricing for tier.<br/>
           Local includes hardware + electricity + 20% ops overhead.<br/>
           Frontier-class local inference assumes Mac Studio Ultra.
@@ -1246,9 +1366,9 @@ a:hover { color: var(--ink-0); }
         </div>
         <div class="lag-grid" id="lag-grid"></div>
         <div class="lag-legend">
-          <div class="lag-legend-item"><span class="swatch" style="background: var(--signal); box-shadow: 0 0 8px var(--signal-line)"></span>Early signal</div>
+          <div class="lag-legend-item"><span class="swatch" style="background: var(--green-neon); box-shadow: 0 0 8px var(--green-line)"></span>Early signal</div>
           <div class="lag-legend-item"><span class="swatch" style="background: var(--data)"></span>Builder consensus</div>
-          <div class="lag-legend-item"><span class="swatch" style="background: var(--late)"></span>Late arrival</div>
+          <div class="lag-legend-item"><span class="swatch" style="background: var(--red)"></span>Late arrival</div>
           <div class="lag-legend-item"><span class="swatch" style="background: var(--ink-4)"></span>Not yet</div>
         </div>
       </div>
@@ -1258,10 +1378,10 @@ a:hover { color: var(--ink-0); }
     <div class="signal-block">
       <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 24px; flex-wrap: wrap; gap: 12px;">
         <div>
-          <div class="label-signal">Where to look</div>
-          <h3 style="font-family: var(--display); font-size: 32px; color: var(--ink-0); margin: 8px 0 0; letter-spacing: -0.01em; font-weight: 400;">A starter signal kit.</h3>
+          <div class="label-accent">Where to look</div>
+          <h3 style="font-family: var(--body); font-size: 30px; color: var(--ink-0); margin: 8px 0 0; letter-spacing: -0.015em; font-weight: 300;">A starter signal kit.</h3>
         </div>
-        <p style="font-family: var(--mono); font-size: 11px; color: var(--ink-3); letter-spacing: 0.06em; max-width: 400px; text-align: right;">
+        <p style="font-weight: 600; font-size: 11px; color: var(--ink-3); letter-spacing: 0.06em; max-width: 400px; text-align: right;">
           Anchors, not gospel. Taste is personal &mdash; the point is to start somewhere upstream of the headlines.
         </p>
       </div>
@@ -1271,8 +1391,8 @@ a:hover { color: var(--ink-0); }
     <!-- Stay current prescription -->
     <div class="signal-block" style="margin-bottom: 0;">
       <div style="margin-bottom: 24px;">
-        <div class="label-signal">The prescription</div>
-        <h3 style="font-family: var(--display); font-size: 32px; color: var(--ink-0); margin: 8px 0 0; letter-spacing: -0.01em; font-weight: 400;">Five moves to stay current.</h3>
+        <div class="label-accent">The prescription</div>
+        <h3 style="font-family: var(--body); font-size: 30px; color: var(--ink-0); margin: 8px 0 0; letter-spacing: -0.015em; font-weight: 300;">Five moves to stay current.</h3>
       </div>
       <div class="prescription" id="prescription"></div>
     </div>
@@ -1284,11 +1404,10 @@ a:hover { color: var(--ink-0); }
   <div class="foot">
     <div class="left">
       The most effective way to stay current is to <em>use</em> the technology, not read about it.
-      The dashboard's two halves reinforce each other.
+      The briefing's two halves reinforce each other.
     </div>
     <div class="right">
-      <span>Field dispatch / No. 01</span>
-      <span>Compiled May 2026</span>
+      <span>Strategic briefing · Q2 2026</span>
       <span>Hardware prices &amp; benchmarks current to Q1 2026</span>
     </div>
   </div>
@@ -1886,9 +2005,9 @@ function drawChart(r) {
     const cx = xScale(r.crossover);
     const cy = yScale(r.cloudSeries[r.crossover]);
     crossoverMark = `
-      <line x1="${cx}" y1="${pad.t}" x2="${cx}" y2="${pad.t + innerH}" stroke="rgba(255,157,61,0.3)" stroke-dasharray="3 3" />
-      <circle cx="${cx}" cy="${cy}" r="6" fill="var(--signal)" stroke="var(--bg-2)" stroke-width="2" />
-      <text x="${cx + 10}" y="${pad.t + 14}" class="axis-label" fill="var(--signal)" style="font-family: var(--mono); letter-spacing: 0.08em">CROSSOVER · MO ${r.crossover}</text>
+      <line x1="${cx}" y1="${pad.t}" x2="${cx}" y2="${pad.t + innerH}" stroke="rgba(134,235,34,0.32)" stroke-dasharray="3 3" />
+      <circle cx="${cx}" cy="${cy}" r="6" fill="var(--green-neon)" stroke="var(--bg-2)" stroke-width="2" />
+      <text x="${cx + 10}" y="${pad.t + 14}" class="axis-label" fill="var(--green-neon)" style="letter-spacing: 0.08em; font-weight: 700">CROSSOVER · MO ${r.crossover}</text>
     `;
   }
 
@@ -1904,12 +2023,12 @@ function drawChart(r) {
       ${xTicks.map(m => `<text x="${xScale(m)}" y="${pad.t + innerH + 22}" class="tick-label" text-anchor="middle">${m === 0 ? 'Mo 0' : 'Mo ' + m}</text>`).join('')}
 
       <!-- lines -->
-      <path d="${cloudPath}" fill="none" stroke="var(--late)" stroke-width="2" stroke-linejoin="round" />
-      <path d="${localPath}" fill="none" stroke="var(--signal)" stroke-width="2" stroke-linejoin="round" />
+      <path d="${cloudPath}" fill="none" stroke="var(--red)" stroke-width="2" stroke-linejoin="round" />
+      <path d="${localPath}" fill="none" stroke="var(--green-neon)" stroke-width="2" stroke-linejoin="round" />
 
       <!-- end labels -->
-      <text x="${xScale(r.months) - 36}" y="${yScale(r.cloudSeries[r.months]) - 8}" class="axis-label" fill="var(--late)" style="font-family: var(--mono); letter-spacing: 0.08em">CLOUD</text>
-      <text x="${xScale(r.months) - 36}" y="${yScale(r.localSeries[r.months]) - 8}" class="axis-label" fill="var(--signal)" style="font-family: var(--mono); letter-spacing: 0.08em">LOCAL</text>
+      <text x="${xScale(r.months) - 36}" y="${yScale(r.cloudSeries[r.months]) - 8}" class="axis-label" fill="var(--red)" style="letter-spacing: 0.08em; font-weight: 700">CLOUD</text>
+      <text x="${xScale(r.months) - 36}" y="${yScale(r.localSeries[r.months]) - 8}" class="axis-label" fill="var(--green-neon)" style="letter-spacing: 0.08em; font-weight: 700">LOCAL</text>
 
       ${crossoverMark}
     </svg>
@@ -1992,7 +2111,7 @@ function renderLag() {
       return `<div class="lag-dot-cell ${i === 0 ? 'first' : ''}">
         <div style="display: flex; flex-direction: column; align-items: center; gap: 4px;">
           <div class="lag-dot ${dotClass}"></div>
-          <div style="font-family: var(--mono); font-size: 9px; color: var(--ink-3); letter-spacing: 0.04em">${tip}</div>
+          <div style="font-weight: 600; font-size: 9px; color: var(--ink-3); letter-spacing: 0.04em">${tip}</div>
         </div>
       </div>`;
     }).join('');
