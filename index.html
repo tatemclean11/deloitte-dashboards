@@ -354,30 +354,7 @@
       <span class="count-badge" id="dash-count">0 dashboards</span>
     </div>
 
-    <!--
-      HOW TO ADD A DASHBOARD:
-      Copy one <a class="dashboard-card"> block below,
-      paste it inside div#dashboard-grid,
-      and update: href, data-tag, title, description, date.
-      The count badge updates automatically.
-    -->
-
     <div class="dashboard-grid" id="dashboard-grid">
-
-      <a class="dashboard-card" href="claude-code-intro.html">
-        <span class="card-tag">Overview</span>
-        <div class="card-title">Claude Code Intro</div>
-        <div class="card-description">An introduction to Claude Code and its capabilities.</div>
-        <div class="card-footer">
-          <span class="card-date">Updated May 2025</span>
-          <span class="card-link">
-            Open
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 12h14M12 5l7 7-7 7"/>
-            </svg>
-          </span>
-        </div>
-      </a>
 
       <a class="dashboard-card" href="desk-side-ai-factory.html">
         <span class="card-tag">AI Strategy</span>
@@ -394,9 +371,23 @@
         </div>
       </a>
 
+      <a class="dashboard-card" href="reading-room.html">
+        <span class="card-tag">AI in Finance</span>
+        <div class="card-title">Reading Room — AI in Finance</div>
+        <div class="card-description">Four publicly available articles on AI and the finance function — summarized, linked, and queryable. Read them, or just ask the live bot.</div>
+        <div class="card-footer">
+          <span class="card-date">Updated May 2026</span>
+          <span class="card-link">
+            Open
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </span>
+        </div>
+      </a>
+
     </div>
 
-    <!-- Empty state — hidden automatically when cards are present -->
     <div class="empty-state" id="empty-state">
       <div class="empty-circle">
         <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -431,7 +422,6 @@
   </footer>
 
   <script>
-    // Auto-show/hide empty state and update count badge
     const grid = document.getElementById('dashboard-grid');
     const empty = document.getElementById('empty-state');
     const countBadge = document.getElementById('dash-count');
